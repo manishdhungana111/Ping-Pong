@@ -52,7 +52,6 @@ let paddle2DownPressed = false;
         }
 
         checkPaddleCollision(paddle) {
-          // Calculate the distance between the circle's center and the paddle's center
           const distX = Math.abs(this.x - (paddle.paddlex + paddle.width / 2));
           const distY = Math.abs(this.y - (paddle.paddley + paddle.height / 2));
         
@@ -61,8 +60,7 @@ let paddle2DownPressed = false;
           }
         
           if (distX <= paddle.width / 2 || distY <= paddle.height / 2) {
-            // Collision detected
-            // You can adjust the bounce behavior here if needed
+           
             this.x_speed *= -1;
           }
         }
@@ -76,21 +74,17 @@ let paddle2DownPressed = false;
 
         checkScoring() {
           if (this.x + this.r > canvas.width) {
-            // Player 1 scores a point
             player1Score++;
             this.reset();
           } else if (this.x - this.r < 0) {
-            // Player 2 scores a point
             player2Score++;
             this.reset();
           }
         }
 
         reset() {
-          // Reset the ball's position to the center
           this.x = canvas.width / 2;
           this.y = canvas.height / 2;
-          // Reset the ball's direction
           this.x_speed = 1;
           this.y_speed = 1;
         }
@@ -101,8 +95,8 @@ let paddle2DownPressed = false;
   }
     class Paddle{
       constructor(x,y,width,height){
-        this.width = width ; //paddle width
-        this.height = height; //paddle height
+        this.width = width ; 
+        this.height = height; 
         this.paddlex=x;
         this.paddley=y;
       }
